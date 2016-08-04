@@ -1,0 +1,41 @@
+{
+  "name": "vfile-to-eslint",
+  "version": "0.0.0",
+  "description": "Convert VFiles to ESLint formatter compatible output",
+  "license": "MIT",
+  "repository": "sindresorhus/vfile-to-eslint",
+  "author": {
+    "name": "Sindre Sorhus",
+    "email": "sindresorhus@gmail.com",
+    "url": "sindresorhus.com"
+  },
+  "engines": {
+    "node": ">=4"
+  },
+  "scripts": {
+    "test": "xo && ava"
+  },
+  "files": [
+    "index.js"
+  ],
+  "keywords": [
+    "vfile",
+    "virtual",
+    "file",
+    "eslint",
+    "formatter",
+    "reporter",
+    "convert",
+    "remark",
+    "lint"
+  ],
+  "devDependencies": {
+    "ava": "*",
+    "remark": "^5.0.1",
+    "remark-lint": "^4.1.0",
+    "xo": "*"
+  },
+  "xo": {
+    "esnext": true
+  }
+}
