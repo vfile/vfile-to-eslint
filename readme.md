@@ -1,6 +1,6 @@
 # vfile-to-eslint [![Build Status](https://travis-ci.org/sindresorhus/vfile-to-eslint.svg?branch=master)](https://travis-ci.org/sindresorhus/vfile-to-eslint)
 
-> Convert [VFiles](https://github.com/wooorm/vfile) to [ESLint](http://eslint.org) formatter compatible output
+> Convert [VFiles](https://github.com/vfile/vfile) to [ESLint](http://eslint.org) formatter compatible output
 
 For example, [remark-lint](https://github.com/wooorm/remark-lint) returns a `VFile`, which you could pass through this module to display it using an ESLint formatter.
 
@@ -16,11 +16,11 @@ $ npm install --save vfile-to-eslint
 
 ```js
 const remark = require('remark');
-const remarkLint = require('remark-lint');
+const recommended = require('remark-preset-lint-recommended');
 const eslintFormatterPretty = require('eslint-formatter-pretty');
 const vfileToEslint = require('vfile-to-eslint');
 
-const file = remark().use(remarkLint).process('## Hello world!');
+const file = remark().use(recommended).processSync('## Hello world!');
 
 console.log(eslintFormatterPretty(vfileToEslint([file])));
 ```
@@ -36,7 +36,7 @@ Returns an `Object` that can be passed directly to an [ESLint formatter](https:/
 
 #### files
 
-Type: [`VFile[]`](https://github.com/wooorm/vfile)
+Type: [`VFile[]`](https://github.com/vfile/vfile)
 
 
 ## License
