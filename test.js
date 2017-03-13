@@ -1,13 +1,13 @@
 import test from 'ava';
 import remark from 'remark';
-import remarkLint from 'remark-lint';
+import recommended from 'remark-preset-lint-recommended';
 import m from './';
 
 test(t => {
-	const output = m([remark().use(remarkLint).process('## Hello world!')])[0];
+	const output = m([remark().use(recommended).processSync('## Hello world!')])[0];
 
 	t.is(output.errorCount, 0);
-	t.is(output.warningCount, 3);
+	t.is(output.warningCount, 1);
 	t.deepEqual(output.messages[0], {
 		severity: 1,
 		ruleId: 'final-newline',

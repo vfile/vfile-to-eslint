@@ -31,8 +31,8 @@
   ],
   "devDependencies": {
     "ava": "*",
-    "remark": "^5.0.1",
-    "remark-lint": "^4.1.0",
+    "remark": "^7.0.0",
+    "remark-preset-lint-recommended": "^2.0.0",
     "xo": "*"
   },
   "xo": {

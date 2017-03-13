@@ -20,7 +20,7 @@ module.exports = vfiles => vfiles.map(vfile => {
 	});
 
 	return {
-		filePath: vfile.filePath(),
+		filePath: vfile.path,
 		messages,
 		errorCount,
 		warningCount
