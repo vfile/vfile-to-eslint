@@ -1,4 +1,4 @@
-# vfile-to-eslint [![Build Status](https://travis-ci.org/sindresorhus/vfile-to-eslint.svg?branch=master)](https://travis-ci.org/sindresorhus/vfile-to-eslint)
+# vfile-to-eslint [![Build Status](https://travis-ci.org/vfile/vfile-to-eslint.svg?branch=master)](https://travis-ci.org/vfile/vfile-to-eslint)
 
 > Convert [VFiles](https://github.com/vfile/vfile) to [ESLint](http://eslint.org) formatter compatible output
 

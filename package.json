@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "description": "Convert VFiles to ESLint formatter compatible output",
   "license": "MIT",
-  "repository": "sindresorhus/vfile-to-eslint",
+  "repository": "vfile/vfile-to-eslint",
   "author": {
     "name": "Sindre Sorhus",
     "email": "sindresorhus@gmail.com",
