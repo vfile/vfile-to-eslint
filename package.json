@@ -1,6 +1,6 @@
 {
   "name": "vfile-to-eslint",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "description": "Convert VFiles to ESLint formatter compatible output",
   "license": "MIT",
   "repository": "vfile/vfile-to-eslint",
