@@ -1,18 +1,48 @@
 import test from 'ava';
-import remark from 'remark';
-import recommended from 'remark-preset-lint-recommended';
+import vfile from 'vfile';
 import m from './';
 
 test(t => {
-	const output = m([remark().use(recommended).processSync('## Hello world!')])[0];
+	const file = vfile({path: '~/example.md'});
 
-	t.is(output.errorCount, 0);
-	t.is(output.warningCount, 1);
-	t.deepEqual(output.messages[0], {
-		severity: 1,
-		ruleId: 'final-newline',
-		line: 1,
-		column: 1,
-		message: 'Missing newline character at end of file'
-	});
+	file.info('This is perfect', {line: 5, column: 3});
+	file.message('This should be fixed', {line: 3, column: 5});
+
+	try {
+		file.fail('This is horrible', {line: 2, column: 1});
+	} catch (err) {}
+
+	t.deepEqual(
+		m([file]),
+		[
+			{
+				filePath: '~/example.md',
+				messages: [
+					{
+						severity: 1,
+						ruleId: null,
+						line: 5,
+						column: 3,
+						message: 'This is perfect'
+					},
+					{
+						severity: 1,
+						ruleId: null,
+						line: 3,
+						column: 5,
+						message: 'This should be fixed'
+					},
+					{
+						severity: 2,
+						ruleId: null,
+						line: 2,
+						column: 1,
+						message: 'This is horrible'
+					}
+				],
+				errorCount: 1,
+				warningCount: 2
+			}
+		]
+	);
 });
