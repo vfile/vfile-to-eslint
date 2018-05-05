@@ -1,6 +1,6 @@
 import test from 'ava';
 import vfile from 'vfile';
-import m from './';
+import m from '.';
 
 test(t => {
 	const file = vfile({path: '~/example.md'});
