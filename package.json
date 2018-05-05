@@ -4,11 +4,11 @@
   "description": "Convert VFiles to ESLint formatter compatible output",
   "license": "MIT",
   "repository": "vfile/vfile-to-eslint",
-  "author": {
-    "name": "Sindre Sorhus",
-    "email": "sindresorhus@gmail.com",
-    "url": "sindresorhus.com"
-  },
+  "author": "Sindre Sorhus <sindresorhus@gmail.com> (sindresorhus.com)",
+  "contributors": [
+    "Sindre Sorhus <sindresorhus@gmail.com> (sindresorhus.com)",
+    "Titus Wormer <tituswormer@gmail.com> (http://wooorm.com)"
+  ],
   "engines": {
     "node": ">=4"
   },
