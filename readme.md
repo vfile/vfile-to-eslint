@@ -1,4 +1,9 @@
-# vfile-to-eslint [![Build][build-badge]][build] [![Coverage][coverage-badge]][coverage] [![Chat][chat-badge]][chat]
+# vfile-to-eslint
+
+[![Build][build-badge]][build]
+[![Coverage][coverage-badge]][coverage]
+[![Downloads][downloads-badge]][downloads]
+[![Chat][chat-badge]][chat]
 
 Convert [VFiles][vfile] to [ESLint][] formatter compatible output.
 
@@ -52,7 +57,7 @@ repository, organisation, or community you agree to abide by its terms.
 
 <!-- Definitions -->
 
-[build-badge]: https://img.shields.io/travis/vfile/vfile-to-eslint.svg?branch=master
+[build-badge]: https://img.shields.io/travis/vfile/vfile-to-eslint.svg
 
 [build]: https://travis-ci.org/vfile/vfile-to-eslint
 
@@ -60,9 +65,13 @@ repository, organisation, or community you agree to abide by its terms.
 
 [coverage]: https://codecov.io/github/vfile/vfile-to-eslint
 
-[chat-badge]: https://img.shields.io/gitter/room/vfile/Lobby.svg
+[downloads-badge]: https://img.shields.io/npm/dm/vfile-to-eslint.svg
 
-[chat]: https://gitter.im/vfile/Lobby
+[downloads]: https://www.npmjs.com/package/vfile-to-eslint
+
+[chat-badge]: https://img.shields.io/badge/join%20the%20community-on%20spectrum-7b16ff.svg
+
+[chat]: https://spectrum.chat/unified/vfile
 
 [npm]: https://docs.npmjs.com/cli/install
 
