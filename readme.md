@@ -80,6 +80,6 @@ repository, organisation, or community you agree to abide by its terms.
 
 [vfile]: https://github.com/vfile/vfile
 
-[eslint]: http://eslint.org
+[eslint]: https://eslint.org
 
 [eslint-formatter]: https://npms.io/search?term=eslint-formatter
