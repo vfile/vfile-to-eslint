@@ -2,7 +2,7 @@ import test from 'ava'
 import vfile from 'vfile'
 import m from '.'
 
-test(t => {
+test('main', t => {
   const file = vfile({path: '~/example.md'})
 
   file.info('This is perfect', {line: 5, column: 3}, 'alpha:bravo')
