@@ -1,18 +1,20 @@
 {
   "name": "vfile-to-eslint",
   "version": "2.0.1",
-  "description": "Convert VFiles to ESLint formatter compatible output",
+  "description": "vfile utility to convert to ESLint formatter compatible output",
   "license": "MIT",
   "keywords": [
     "vfile",
+    "vfile-util",
+    "vfile-reporter",
+    "util",
+    "utility",
     "virtual",
     "file",
-    "eslint",
-    "formatter",
     "reporter",
-    "convert",
-    "remark",
-    "lint"
+    "fortmatter",
+    "eslint",
+    "convert"
   ],
   "repository": "vfile/vfile-to-eslint",
   "bugs": "https://github.com/vfile/vfile-to-eslint/issues",
