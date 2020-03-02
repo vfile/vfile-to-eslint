@@ -1,6 +1,6 @@
 {
   "name": "vfile-to-eslint",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "description": "vfile utility to convert to ESLint formatter compatible output",
   "license": "MIT",
   "keywords": [
