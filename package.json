@@ -16,6 +16,10 @@
   ],
   "repository": "vfile/vfile-to-eslint",
   "bugs": "https://github.com/vfile/vfile-to-eslint/issues",
+  "funding": {
+    "type": "opencollective",
+    "url": "https://opencollective.com/unified"
+  },
   "author": "Sindre Sorhus <sindresorhus@gmail.com> (https://sindresorhus.com)",
   "contributors": [
     "Sindre Sorhus <sindresorhus@gmail.com> (https://sindresorhus.com)",
