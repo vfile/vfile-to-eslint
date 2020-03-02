@@ -1,9 +1,9 @@
-import test from 'ava'
-import vfile from 'vfile'
-import m from '.'
+var test = require('tape')
+var vfile = require('vfile')
+var toEslint = require('.')
 
-test('main', t => {
-  const file = vfile({path: '~/example.md'})
+test('vfile-to-eslint', function(t) {
+  var file = vfile({path: '~/example.md'})
 
   file.info('This is perfect', {line: 5, column: 3}, 'alpha:bravo')
 
@@ -23,7 +23,7 @@ test('main', t => {
     })
   } catch (_) {}
 
-  t.deepEqual(m([file]), [
+  t.deepEqual(toEslint([file]), [
     {
       filePath: '~/example.md',
       messages: [
@@ -62,4 +62,6 @@ test('main', t => {
       warningCount: 2
     }
   ])
+
+  t.end()
 })
