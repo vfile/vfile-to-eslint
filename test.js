@@ -2,7 +2,7 @@ var test = require('tape')
 var vfile = require('vfile')
 var toEslint = require('.')
 
-test('vfile-to-eslint', function(t) {
+test('vfile-to-eslint', function (t) {
   var file = vfile({path: '~/example.md'})
 
   file.info('This is perfect', {line: 5, column: 3}, 'alpha:bravo')

@@ -2,13 +2,13 @@
 
 const statistics = require('vfile-statistics')
 
-module.exports = vfiles =>
-  vfiles.map(vfile => {
+module.exports = (vfiles) =>
+  vfiles.map((vfile) => {
     const stats = statistics(vfile)
 
     return {
       filePath: vfile.path,
-      messages: vfile.messages.map(x => {
+      messages: vfile.messages.map((x) => {
         return {
           fatal: x.fatal === true,
           severity: x.fatal ? 2 : 1,
