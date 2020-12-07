@@ -62,9 +62,9 @@ abide by its terms.
 
 <!-- Definitions -->
 
-[build-badge]: https://img.shields.io/travis/vfile/vfile-to-eslint.svg
+[build-badge]: https://github.com/vfile/vfile-to-eslint/workflows/main/badge.svg
 
-[build]: https://travis-ci.org/vfile/vfile-to-eslint
+[build]: https://github.com/vfile/vfile-to-eslint/actions
 
 [coverage-badge]: https://img.shields.io/codecov/c/github/vfile/vfile-to-eslint.svg
 
