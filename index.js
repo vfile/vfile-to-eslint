@@ -1,5 +1,14 @@
+/**
+ * @typedef {import('vfile').VFile} VFile
+ * @typedef {import('eslint').ESLint.LintResult} LintResult
+ */
+
 import {statistics} from 'vfile-statistics'
 
+/**
+ * @param {Array.<VFile>} vfiles
+ * @returns {Array.<LintResult>}
+ */
 export function toESLint(vfiles) {
   return vfiles.map((vfile) => {
     const stats = statistics(vfile)
@@ -8,7 +17,7 @@ export function toESLint(vfiles) {
       filePath: vfile.path,
       messages: vfile.messages.map((x) => {
         return {
-          fatal: x.fatal === true,
+          fatal: x.fatal === true ? true : undefined,
           severity: x.fatal ? 2 : 1,
           ruleId: [x.source, x.ruleId].filter(Boolean).join(':') || null,
           line: x.line,
@@ -19,7 +28,10 @@ export function toESLint(vfiles) {
         }
       }),
       errorCount: stats.fatal,
-      warningCount: stats.nonfatal
+      warningCount: stats.nonfatal,
+      fixableErrorCount: 0,
+      fixableWarningCount: 0,
+      usedDeprecatedRules: []
     }
   })
 }

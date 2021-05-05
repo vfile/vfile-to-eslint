@@ -28,17 +28,17 @@ test('toESLint', (t) => {
       filePath: '~/example.md',
       messages: [
         {
-          fatal: false,
+          fatal: undefined,
           severity: 1,
+          ruleId: 'alpha:bravo',
           line: 5,
           column: 3,
           endLine: null,
           endColumn: null,
-          ruleId: 'alpha:bravo',
           message: 'This is perfect'
         },
         {
-          fatal: false,
+          fatal: undefined,
           severity: 1,
           ruleId: null,
           line: 3,
@@ -59,7 +59,10 @@ test('toESLint', (t) => {
         }
       ],
       errorCount: 1,
-      warningCount: 2
+      warningCount: 2,
+      fixableErrorCount: 0,
+      fixableWarningCount: 0,
+      usedDeprecatedRules: []
     }
   ])
 
