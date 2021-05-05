@@ -1,9 +1,9 @@
-var test = require('tape')
-var vfile = require('vfile')
-var toEslint = require('.')
+import test from 'tape'
+import {VFile} from 'vfile'
+import {toESLint} from './index.js'
 
-test('vfile-to-eslint', function (t) {
-  var file = vfile({path: '~/example.md'})
+test('toESLint', (t) => {
+  const file = new VFile({path: '~/example.md'})
 
   file.info('This is perfect', {line: 5, column: 3}, 'alpha:bravo')
 
@@ -21,9 +21,9 @@ test('vfile-to-eslint', function (t) {
         end: {line: 2, column: 8}
       }
     })
-  } catch (_) {}
+  } catch {}
 
-  t.deepEqual(toEslint([file]), [
+  t.deepEqual(toESLint([file]), [
     {
       filePath: '~/example.md',
       messages: [

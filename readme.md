@@ -16,6 +16,9 @@ this module to display it using an ESLint formatter.
 
 ## Install
 
+This package is [ESM only](https://gist.github.com/sindresorhus/a39789f98801d908bbc7ff3ecc99d99c):
+Node 12+ is needed to use it and it must be `import`ed instead of `require`d.
+
 [npm][]:
 
 ```sh
@@ -25,19 +28,24 @@ npm install vfile-to-eslint
 ## Use
 
 ```js
-const remark = require('remark')
-const recommended = require('remark-preset-lint-recommended')
-const eslintFormatterPretty = require('eslint-formatter-pretty')
-const vfileToEslint = require('vfile-to-eslint')
+import remark from 'remark'
+import recommended from 'remark-preset-lint-recommended'
+import eslintFormatterPretty from 'eslint-formatter-pretty'
+import {toESLint} from 'vfile-to-eslint'
 
 const file = remark()
   .use(recommended)
   .processSync('## Hello world!')
 
-console.log(eslintFormatterPretty(vfileToEslint([file])))
+console.log(eslintFormatterPretty(toESLint([file])))
 ```
 
-### `vfileToEslint(files)`
+## API
+
+This package exports the following identifiers: `toESLint`.
+There is no default export.
+
+### `toESLint(files)`
 
 Returns an `Object` that can be passed directly to an
 [ESLint formatter][eslint-formatter].

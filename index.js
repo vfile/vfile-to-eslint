@@ -1,9 +1,7 @@
-'use strict'
+import {statistics} from 'vfile-statistics'
 
-const statistics = require('vfile-statistics')
-
-module.exports = (vfiles) =>
-  vfiles.map((vfile) => {
+export function toESLint(vfiles) {
+  return vfiles.map((vfile) => {
     const stats = statistics(vfile)
 
     return {
@@ -15,8 +13,8 @@ module.exports = (vfiles) =>
           ruleId: [x.source, x.ruleId].filter(Boolean).join(':') || null,
           line: x.line,
           column: x.column,
-          endLine: x.location.end.line,
-          endColumn: x.location.end.column,
+          endLine: x.position.end.line,
+          endColumn: x.position.end.column,
           message: x.reason
         }
       }),
@@ -24,3 +22,4 @@ module.exports = (vfiles) =>
       warningCount: stats.nonfatal
     }
   })
+}
