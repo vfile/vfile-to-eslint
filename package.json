@@ -36,7 +36,7 @@
     "index.js"
   ],
   "dependencies": {
-    "@types/eslint": "^7.0.10",
+    "@types/eslint": "^8.0.0",
     "vfile": "^5.0.0",
     "vfile-statistics": "^2.0.0"
   },
