@@ -58,6 +58,7 @@ test('toESLint', (t) => {
           message: 'This is horrible'
         }
       ],
+      fatalErrorCount: 1,
       errorCount: 1,
       warningCount: 2,
       fixableErrorCount: 0,

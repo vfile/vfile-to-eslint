@@ -27,6 +27,7 @@ export function toESLint(vfiles) {
           message: x.reason
         }
       }),
+      fatalErrorCount: stats.fatal,
       errorCount: stats.fatal,
       warningCount: stats.nonfatal,
       fixableErrorCount: 0,
