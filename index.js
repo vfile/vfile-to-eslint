@@ -6,8 +6,8 @@
 import {statistics} from 'vfile-statistics'
 
 /**
- * @param {Array.<VFile>} vfiles
- * @returns {Array.<LintResult>}
+ * @param {Array<VFile>} vfiles
+ * @returns {Array<LintResult>}
  */
 export function toESLint(vfiles) {
   return vfiles.map((vfile) => {
