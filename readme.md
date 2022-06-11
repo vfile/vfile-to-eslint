@@ -9,20 +9,53 @@
 
 Convert [VFiles][vfile] to [ESLint][] formatter compatible output.
 
-For example, [remark-lint][] returns a `VFile`, which you could pass through
-this module to display it using an ESLint formatter.
-
 ![][screenshot]
+
+## Contents
+
+*   [What is this?](#what-is-this)
+*   [When should I use this?](#when-should-i-use-this)
+*   [Install](#install)
+*   [Use](#use)
+*   [API](#api)
+    *   [`toESLint(files)`](#toeslintfiles)
+*   [Types](#types)
+*   [Compatibility](#compatibility)
+*   [Contribute](#contribute)
+*   [License](#license)
+
+## What is this?
+
+This package turns a file into the `LintResult` schema that ESLint uses for its
+formatters
+
+## When should I use this?
+
+While vfile and ESLint results are different, they do overlap in some places.
+This package can be used to integrate with ESLint in those cases.
+In other cases, a custom vfile utility might be a better solution.
 
 ## Install
 
-This package is [ESM only](https://gist.github.com/sindresorhus/a39789f98801d908bbc7ff3ecc99d99c):
-Node 12+ is needed to use it and it must be `import`ed instead of `require`d.
-
-[npm][]:
+This package is [ESM only][esm].
+In Node.js (version 12.20+, 14.14+, 16.0+, 18.0+), install with [npm][]:
 
 ```sh
 npm install vfile-to-eslint
+```
+
+In Deno with [`esm.sh`][esmsh]:
+
+```js
+import {toESLint} from 'https://esm.sh/vfile-to-eslint@3'
+```
+
+In browsers with [`esm.sh`][esmsh]:
+
+```html
+<script type="module">
+  import {toESLint} from 'https://esm.sh/vfile-to-eslint@3?bundle'
+</script>
 ```
 
 ## Use
@@ -42,17 +75,29 @@ console.log(eslintFormatterPretty(toESLint([file])))
 
 ## API
 
-This package exports the following identifiers: `toESLint`.
+This package exports the identifier `toESLint`.
 There is no default export.
 
 ### `toESLint(files)`
 
-Returns an `Object` that can be passed directly to an
+Returns an `LintResult` that can be passed directly to an
 [ESLint formatter][eslint-formatter].
 
 ###### `files`
 
-List of files ([`Array.<VFile>`][vfile]).
+List of files ([`Array<VFile>`][vfile]).
+
+## Types
+
+This package is fully typed with [TypeScript][].
+It exports the additional type `LintResult`.
+
+## Compatibility
+
+Projects maintained by the unified collective are compatible with all maintained
+versions of Node.js.
+As of now, that is Node.js 12.20+, 14.14+, 16.0+, and 18.0+.
+Our projects sometimes work with older versions, but this is not guaranteed.
 
 ## Contribute
 
@@ -94,21 +139,25 @@ abide by its terms.
 
 [npm]: https://docs.npmjs.com/cli/install
 
-[contributing]: https://github.com/vfile/.github/blob/HEAD/contributing.md
+[esm]: https://gist.github.com/sindresorhus/a39789f98801d908bbc7ff3ecc99d99c
 
-[support]: https://github.com/vfile/.github/blob/HEAD/support.md
+[esmsh]: https://esm.sh
+
+[typescript]: https://www.typescriptlang.org
+
+[contributing]: https://github.com/vfile/.github/blob/main/contributing.md
+
+[support]: https://github.com/vfile/.github/blob/main/support.md
 
 [health]: https://github.com/vfile/.github
 
-[coc]: https://github.com/vfile/.github/blob/HEAD/code-of-conduct.md
+[coc]: https://github.com/vfile/.github/blob/main/code-of-conduct.md
 
 [license]: license
 
 [author]: https://sindresorhus.com
 
 [screenshot]: screenshot.png
-
-[remark-lint]: https://github.com/remarkjs/remark-lint
 
 [vfile]: https://github.com/vfile/vfile
 
