@@ -63,7 +63,8 @@ test('toESLint', (t) => {
       warningCount: 2,
       fixableErrorCount: 0,
       fixableWarningCount: 0,
-      usedDeprecatedRules: []
+      usedDeprecatedRules: [],
+      suppressedMessages: []
     }
   ])
 

@@ -32,7 +32,8 @@ export function toESLint(vfiles) {
       warningCount: stats.nonfatal,
       fixableErrorCount: 0,
       fixableWarningCount: 0,
-      usedDeprecatedRules: []
+      usedDeprecatedRules: [],
+      suppressedMessages: []
     }
   })
 }
