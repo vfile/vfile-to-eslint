@@ -8,34 +8,50 @@
 import {statistics} from 'vfile-statistics'
 
 /**
- * @param {Array<VFile>} vfiles
+ * Turn virtual files into a ESLint results.
+ *
+ * @param {Array<VFile>} files
+ *   Virtual files.
  * @returns {Array<LintResult>}
+ *   Lint results.
  */
-export function toESLint(vfiles) {
-  return vfiles.map((vfile) => {
-    const stats = statistics(vfile)
+export function toESLint(files) {
+  return files.map((x) => file(x))
+}
 
-    return {
-      filePath: vfile.path,
-      messages: vfile.messages.map((x) => mapMessage(x)),
-      fatalErrorCount: stats.fatal,
-      errorCount: stats.fatal,
-      warningCount: stats.nonfatal,
-      fixableErrorCount: 0,
-      fixableWarningCount: 0,
-      usedDeprecatedRules: [],
-      suppressedMessages: []
-    }
-  })
+/**
+ * Map a file.
+ *
+ * @param {VFile} file
+ *   Virtual file.
+ * @returns {LintResult}
+ *   ESLint result.
+ */
+function file(file) {
+  const stats = statistics(file)
+
+  return {
+    filePath: file.path,
+    messages: file.messages.map((x) => message(x)),
+    fatalErrorCount: stats.fatal,
+    errorCount: stats.fatal,
+    warningCount: stats.nonfatal,
+    fixableErrorCount: 0,
+    fixableWarningCount: 0,
+    usedDeprecatedRules: [],
+    suppressedMessages: []
+  }
 }
 
 /**
  * Map a message.
  *
  * @param {VFileMessage} x
+ *   Virtual message.
  * @returns {LintMessage}
+ *   ESLint message.
  */
-function mapMessage(x) {
+function message(x) {
   /* c8 ignore next */
   const end = x.position ? x.position.end : {line: undefined, column: undefined}
   return {
