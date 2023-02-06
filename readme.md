@@ -38,7 +38,7 @@ In other cases, a custom vfile utility might be a better solution.
 ## Install
 
 This package is [ESM only][esm].
-In Node.js (version 12.20+, 14.14+, 16.0+, 18.0+), install with [npm][]:
+In Node.js (version 14.14+ and 16.0+), install with [npm][]:
 
 ```sh
 npm install vfile-to-eslint
@@ -62,41 +62,46 @@ In browsers with [`esm.sh`][esmsh]:
 
 ```js
 import remark from 'remark'
-import recommended from 'remark-preset-lint-recommended'
+import remarkPresetLintRecommended from 'remark-preset-lint-recommended'
 import eslintFormatterPretty from 'eslint-formatter-pretty'
 import {toESLint} from 'vfile-to-eslint'
 
-const file = remark()
-  .use(recommended)
-  .processSync('## Hello world!')
+const file = await remark()
+  .use(remarkPresetLintRecommended)
+  .process('## Hello world!')
 
 console.log(eslintFormatterPretty(toESLint([file])))
 ```
 
 ## API
 
-This package exports the identifier `toESLint`.
+This package exports the identifier [`toESLint`][api-to-eslint].
 There is no default export.
 
 ### `toESLint(files)`
 
-Returns an `LintResult` that can be passed directly to an
+Turn virtual files into a ESLint results that can be passed directly to an
 [ESLint formatter][eslint-formatter].
 
-###### `files`
+###### Parameters
 
-List of files ([`Array<VFile>`][vfile]).
+*   `files` ([`Array<VFile>`][vfile])
+    — list of files
+
+###### Returns
+
+Lint results ([`Array<LintResult>`][lintresult])
 
 ## Types
 
 This package is fully typed with [TypeScript][].
-It exports the additional type `LintResult`.
+It exports the additional type [`LintResult`][lintresult].
 
 ## Compatibility
 
 Projects maintained by the unified collective are compatible with all maintained
 versions of Node.js.
-As of now, that is Node.js 12.20+, 14.14+, 16.0+, and 18.0+.
+As of now, that is Node.js 14.14+ and 16.0+.
 Our projects sometimes work with older versions, but this is not guaranteed.
 
 ## Contribute
@@ -164,3 +169,7 @@ abide by its terms.
 [eslint]: https://eslint.org
 
 [eslint-formatter]: https://npms.io/search?term=eslint-formatter
+
+[lintresult]: https://eslint.org/docs/latest/integrate/nodejs-api#-lintresult-type
+
+[api-to-eslint]: #toeslintfiles
