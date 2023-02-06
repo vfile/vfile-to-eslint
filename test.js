@@ -1,8 +1,9 @@
-import test from 'tape'
+import assert from 'node:assert/strict'
+import test from 'node:test'
 import {VFile} from 'vfile'
 import {toESLint} from './index.js'
 
-test('toESLint', (t) => {
+test('toESLint', () => {
   const file = new VFile({path: '~/example.md'})
 
   const message = file.info('?')
@@ -26,7 +27,7 @@ test('toESLint', (t) => {
     })
   } catch {}
 
-  t.deepEqual(toESLint([file]), [
+  assert.deepEqual(toESLint([file]), [
     {
       filePath: '~/example.md',
       messages: [
@@ -80,6 +81,4 @@ test('toESLint', (t) => {
       suppressedMessages: []
     }
   ])
-
-  t.end()
 })
