@@ -5,6 +5,9 @@ import {toESLint} from './index.js'
 test('toESLint', (t) => {
   const file = new VFile({path: '~/example.md'})
 
+  const message = file.info('?')
+  message.position = null
+
   file.info('This is perfect', {line: 5, column: 3}, 'alpha:bravo')
 
   file.message('This should be fixed', {
@@ -30,11 +33,21 @@ test('toESLint', (t) => {
         {
           fatal: undefined,
           severity: 1,
+          ruleId: null,
+          line: 0,
+          column: 0,
+          endLine: undefined,
+          endColumn: undefined,
+          message: '?'
+        },
+        {
+          fatal: undefined,
+          severity: 1,
           ruleId: 'alpha:bravo',
           line: 5,
           column: 3,
-          endLine: null,
-          endColumn: null,
+          endLine: undefined,
+          endColumn: undefined,
           message: 'This is perfect'
         },
         {
@@ -60,7 +73,7 @@ test('toESLint', (t) => {
       ],
       fatalErrorCount: 1,
       errorCount: 1,
-      warningCount: 2,
+      warningCount: 3,
       fixableErrorCount: 0,
       fixableWarningCount: 0,
       usedDeprecatedRules: [],

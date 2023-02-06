@@ -1,6 +1,8 @@
 /**
  * @typedef {import('vfile').VFile} VFile
+ * @typedef {import('vfile-message').VFileMessage} VFileMessage
  * @typedef {import('eslint').ESLint.LintResult} LintResult
+ * @typedef {import('eslint').Linter.LintMessage} LintMessage
  */
 
 import {statistics} from 'vfile-statistics'
@@ -15,18 +17,7 @@ export function toESLint(vfiles) {
 
     return {
       filePath: vfile.path,
-      messages: vfile.messages.map((x) => {
-        return {
-          fatal: x.fatal === true ? true : undefined,
-          severity: x.fatal ? 2 : 1,
-          ruleId: [x.source, x.ruleId].filter(Boolean).join(':') || null,
-          line: x.line,
-          column: x.column,
-          endLine: x.position.end.line,
-          endColumn: x.position.end.column,
-          message: x.reason
-        }
-      }),
+      messages: vfile.messages.map((x) => mapMessage(x)),
       fatalErrorCount: stats.fatal,
       errorCount: stats.fatal,
       warningCount: stats.nonfatal,
@@ -36,4 +27,25 @@ export function toESLint(vfiles) {
       suppressedMessages: []
     }
   })
+}
+
+/**
+ * Map a message.
+ *
+ * @param {VFileMessage} x
+ * @returns {LintMessage}
+ */
+function mapMessage(x) {
+  /* c8 ignore next */
+  const end = x.position ? x.position.end : {line: undefined, column: undefined}
+  return {
+    fatal: x.fatal === true ? true : undefined,
+    severity: x.fatal ? 2 : 1,
+    ruleId: [x.source, x.ruleId].filter(Boolean).join(':') || null,
+    line: x.line || 0,
+    column: x.column || 0,
+    endLine: end.line || undefined,
+    endColumn: end.column || undefined,
+    message: x.reason
+  }
 }
