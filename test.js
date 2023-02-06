@@ -2,8 +2,15 @@ import assert from 'node:assert/strict'
 import test from 'node:test'
 import {VFile} from 'vfile'
 import {toESLint} from './index.js'
+import * as mod from './index.js'
 
 test('toESLint', () => {
+  assert.deepEqual(
+    Object.keys(mod).sort(),
+    ['toESLint'],
+    'should expose the public api'
+  )
+
   const file = new VFile({path: '~/example.md'})
 
   const message = file.info('?')
