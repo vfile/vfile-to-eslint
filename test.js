@@ -12,8 +12,7 @@ test('toESLint', async function () {
 
   const file = new VFile({path: '~/example.md'})
 
-  const message = file.info('?')
-  message.position = null
+  file.info('?')
 
   file.info('This is perfect', {line: 5, column: 3}, 'alpha:bravo')
 
@@ -24,9 +23,7 @@ test('toESLint', async function () {
 
   try {
     file.fail('This is horrible', {
-      type: 'charlie',
-      value: 'bravo',
-      position: {
+      place: {
         start: {line: 2, column: 1},
         end: {line: 2, column: 8}
       }

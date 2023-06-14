@@ -38,9 +38,9 @@
   ],
   "dependencies": {
     "@types/eslint": "^8.0.0",
-    "vfile": "^5.0.0",
-    "vfile-message": "^3.0.0",
-    "vfile-statistics": "^2.0.0"
+    "vfile": "^6.0.0",
+    "vfile-message": "^4.0.0",
+    "vfile-statistics": "^3.0.0"
   },
   "devDependencies": {
     "@types/node": "^20.0.0",
