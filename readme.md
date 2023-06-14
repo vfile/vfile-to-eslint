@@ -3,6 +3,7 @@
 [![Build][build-badge]][build]
 [![Coverage][coverage-badge]][coverage]
 [![Downloads][downloads-badge]][downloads]
+[![Size][size-badge]][size]
 [![Sponsors][sponsors-badge]][collective]
 [![Backers][backers-badge]][collective]
 [![Chat][chat-badge]][chat]
@@ -38,7 +39,7 @@ In other cases, a custom vfile utility might be a better solution.
 ## Install
 
 This package is [ESM only][esm].
-In Node.js (version 14.14+ and 16.0+), install with [npm][]:
+In Node.js (version 16+), install with [npm][]:
 
 ```sh
 npm install vfile-to-eslint
@@ -61,7 +62,7 @@ In browsers with [`esm.sh`][esmsh]:
 ## Use
 
 ```js
-import remark from 'remark'
+import {remark} from 'remark'
 import remarkPresetLintRecommended from 'remark-preset-lint-recommended'
 import eslintFormatterPretty from 'eslint-formatter-pretty'
 import {toESLint} from 'vfile-to-eslint'
@@ -99,10 +100,13 @@ It exports the additional type [`LintResult`][lintresult].
 
 ## Compatibility
 
-Projects maintained by the unified collective are compatible with all maintained
+Projects maintained by the unified collective are compatible with maintained
 versions of Node.js.
-As of now, that is Node.js 14.14+ and 16.0+.
-Our projects sometimes work with older versions, but this is not guaranteed.
+
+When we cut a new major release, we drop support for unmaintained versions of
+Node.
+This means we try to keep the current release line, `vfile-to-eslint@^3`,
+compatible with Node.js 12.
 
 ## Contribute
 
@@ -131,6 +135,10 @@ abide by its terms.
 [downloads-badge]: https://img.shields.io/npm/dm/vfile-to-eslint.svg
 
 [downloads]: https://www.npmjs.com/package/vfile-to-eslint
+
+[size-badge]: https://img.shields.io/badge/dynamic/json?label=minzipped%20size&query=$.size.compressedSize&url=https://deno.bundlejs.com/?q=vfile-to-eslint
+
+[size]: https://bundlejs.com/?q=vfile-to-eslint
 
 [sponsors-badge]: https://opencollective.com/unified/sponsors/badge.svg
 
