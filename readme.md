@@ -48,14 +48,14 @@ npm install vfile-to-eslint
 In Deno with [`esm.sh`][esmsh]:
 
 ```js
-import {toESLint} from 'https://esm.sh/vfile-to-eslint@3'
+import {toESLint} from 'https://esm.sh/vfile-to-eslint@4'
 ```
 
 In browsers with [`esm.sh`][esmsh]:
 
 ```html
 <script type="module">
-  import {toESLint} from 'https://esm.sh/vfile-to-eslint@3?bundle'
+  import {toESLint} from 'https://esm.sh/vfile-to-eslint@4?bundle'
 </script>
 ```
 
