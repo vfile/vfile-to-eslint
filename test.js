@@ -1,11 +1,11 @@
 import assert from 'node:assert/strict'
 import test from 'node:test'
 import {VFile} from 'vfile'
-import {toESLint} from './index.js'
+import {toESLint} from 'vfile-to-eslint'
 
 test('toESLint', async function () {
   assert.deepEqual(
-    Object.keys(await import('./index.js')).sort(),
+    Object.keys(await import('vfile-to-eslint')).sort(),
     ['toESLint'],
     'should expose the public api'
   )
